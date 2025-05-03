@@ -1,15 +1,33 @@
 import styled from "styled-components"
 import { HomeTable } from "./components/HomeTable"
 import { HomeMap } from "./components/HomeMap"
+import { createContext } from "react"
+import a from "../../../../database/db.json"
+import { MobileFoodFacility } from "../../types"
+
+export const HomeContext = createContext<IHomeContex>({} as IHomeContex)
+
+interface IHomeContex {
+    hoveredElementId: number
+    data: MobileFoodFacility[]
+}
 
 export const Home = () => {
+    const contextValue: IHomeContex = {
+        hoveredElementId: 0,
+        data: a as MobileFoodFacility[]
+    }
     return (
-        <Wrapper>
-            <Card >
-                <HomeMap />
-            </Card>
-            <Card />
-        </Wrapper>
+        <HomeContext.Provider value={contextValue}>
+            <Wrapper>
+                <Card >
+                    <HomeMap />
+                </Card>
+                <Card >
+                    <HomeTable />
+                </Card>
+            </Wrapper>
+        </HomeContext.Provider>
     )
 }
 

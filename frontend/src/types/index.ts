@@ -1,0 +1,31 @@
+export interface MobileFoodFacility {
+  locationid: number;
+  Applicant: string;
+  FacilityType: string;
+  cnn: number;
+  LocationDescription: string;
+  Address: string;
+  blocklot: string;
+  block: string;
+  lot: string;
+  permit: string;
+  Status: string;
+  FoodItems: string;
+  X: number;
+  Y: number;
+  Latitude: number;
+  Longitude: number;
+  Schedule: string;
+  dayshours: string | null;
+  NOISent: string | null;
+  Approved: string | null;
+  Received: number;
+  PriorPermit: number;
+  ExpirationDate: string;
+  Location: string;
+  "Fire Prevention Districts": number;
+  "Police Districts": number;
+  "Supervisor Districts": number;
+  "Zip Codes": number;
+  "Neighborhoods (old)": number;
+}
