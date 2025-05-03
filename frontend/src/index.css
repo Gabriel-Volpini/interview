@@ -3,6 +3,10 @@ html, body {
   margin: 0;
   background: #fff;
 }
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
 
 #root {
   background-color: #1e1e2e;
