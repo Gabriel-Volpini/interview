@@ -6,11 +6,11 @@ import { HomeContext } from "../Home";
 
 const customIcon = new Icon({
     iconUrl: "https://cdn-icons-png.flaticon.com/512/252/252025.png",
-    iconSize: [24, 24] // size of the icon
+    iconSize: [14, 14] // size of the icon
 });
 
 const largeIcon = new Icon({
-    iconUrl: "https://cdn-icons-png.flaticon.com/512/252/252025.png",
+    iconUrl: "https://cdn-icons-png.flaticon.com/512/2642/2642502.png",
     iconSize: [58, 58] // size of the icon
 });
 

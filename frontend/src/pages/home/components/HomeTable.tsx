@@ -1,87 +1,76 @@
-import { Space, Table , Tag } from 'antd';
+import { Input, Table, TableProps, Select, GetProps } from 'antd';
+import { MobileFoodFacility } from '../../../types';
+import { HomeContext } from '../Home';
+import { useContext, useState } from 'react';
+import styled from 'styled-components';
+
+type SearchProps = GetProps<typeof Input.Search>;
+const { Search } = Input
+
+
+const columns: TableProps<MobileFoodFacility>['columns'] = [
+    { title: 'locationid', dataIndex: 'locationid', key: 'locationid' },
+    { title: 'Applicant', dataIndex: 'Applicant', key: 'Applicant' },
+    { title: 'Address', dataIndex: 'Address', key: 'Address' },
+    { title: 'Status', dataIndex: 'Status', key: 'Status' },
+];
+
+
 
 export const HomeTable = () => {
-interface DataType {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-  tags: string[];
-}
+    const { data, setHoveredElementId } = useContext(HomeContext)
+    const [search, setSearch] = useState<null | MobileFoodFacility[]>(null)
 
-const columns: TableProps<DataType>['columns'] = [
-  {
-    title: 'Name',
-    dataIndex: 'name',
-    key: 'name',
-  },
-  {
-    title: 'Age',
-    dataIndex: 'age',
-    key: 'age',
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address',
-  },
-  {
-    title: 'Tags',
-    key: 'tags',
-    dataIndex: 'tags',
-    render: (_, { tags }) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? 'geekblue' : 'green';
-          if (tag === 'loser') {
-            color = 'volcano';
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: 'Action',
-    key: 'action',
-    render: (_, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-];
+    const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
+        if (info?.source === "clear") return setSearch(null)
+        else setSearch([data[0]])
+    }
 
-const data: DataType[] = [
-  {
-    key: '1',
-    name: 'John Brown',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer'],
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser'],
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sydney No. 1 Lake Park',
-    tags: ['cool', 'teacher'],
-  },
-];
-
-    return(
-        <Table columns={columns} dataSource={data} />
+    return (
+        <Wrapper >
+            <SearchWrapper >
+                <Select
+                    defaultValue="lucy"
+                    style={{ width: 120 }}
+                    //onChange={handleChange}
+                    options={[
+                        { value: 'jack', label: 'Jack' },
+                        { value: 'lucy', label: 'Lucy' },
+                        { value: 'Yiminghe', label: 'yiminghe' },
+                        { value: 'disabled', label: 'Disabled', disabled: true },
+                    ]}
+                />
+                <Search
+                    placeholder="input search text"
+                    allowClear
+                    enterButton="Search"
+                    size="large"
+                    onSearch={onSearch}
+                />
+            </SearchWrapper >
+            <Table
+                size="large"
+                columns={columns}
+                dataSource={search || data}
+                onRow={(record) => ({
+                    onMouseEnter: () => setHoveredElementId(record.locationid),
+                    onMouseLeave: () => setHoveredElementId(null),
+                })} />
+        </Wrapper>
     )
 }
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex:1;
+`
+
+const SearchWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+`
+
+
+

@@ -1,21 +1,25 @@
+import { createContext, Dispatch, SetStateAction, useState } from "react"
 import styled from "styled-components"
 import { HomeTable } from "./components/HomeTable"
 import { HomeMap } from "./components/HomeMap"
-import { createContext } from "react"
-import a from "../../../../database/db.json"
+import fakeApiResponse from "../../../../database/db.json"
 import { MobileFoodFacility } from "../../types"
 
 export const HomeContext = createContext<IHomeContex>({} as IHomeContex)
 
 interface IHomeContex {
-    hoveredElementId: number
+    hoveredElementId: number | null
+    setHoveredElementId: Dispatch<SetStateAction<number | null>>
     data: MobileFoodFacility[]
 }
 
 export const Home = () => {
+    const [hoveredElementId, setHoveredElementId] = useState<null | number>(null)
+
     const contextValue: IHomeContex = {
-        hoveredElementId: 0,
-        data: a as MobileFoodFacility[]
+        hoveredElementId,
+        setHoveredElementId,
+        data: fakeApiResponse as MobileFoodFacility[]
     }
     return (
         <HomeContext.Provider value={contextValue}>
@@ -38,12 +42,11 @@ const Wrapper = styled.div`
     justify-content: space-around;
     flex:1;
     color:white;
+    overflow: hidden;
 `
 const Card = styled.div`
     display: flex;
     flex:1;
     margin: 32px;
-    border-radius:20px;
-    border:1px solid #9399b2;   
     overflow: hidden;
 `

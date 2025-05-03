@@ -10,6 +10,10 @@ This project fulfills the challenge requirements for both the Backend-Focused an
 FRONTEND NOTES
 
 duvida entre fazer usando next
+marker esta com o offset errado
+lista esta com estilo esquisito, provavelmente por causa do tamanho dos textos renderizados dentro dela
+clicar na lista centraliza o marcador
+quando o hover acontecer, aumentar o zindex do marker para ele vir para frente
 
 - pnpm
 - vite
