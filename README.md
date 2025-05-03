@@ -5,3 +5,12 @@ A full-stack application that enables users to search, filter, and locate mobile
 This project fulfills the challenge requirements for both the Backend-Focused and Frontend-Focused versions of the assignment. Below, each part is documented independently.
 
 ---
+
+
+FRONTEND NOTES
+
+duvida entre fazer usando next
+
+- pnpm
+- vite
+- vitest
