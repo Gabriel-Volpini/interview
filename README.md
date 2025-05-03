@@ -14,3 +14,5 @@ duvida entre fazer usando next
 - pnpm
 - vite
 - vitest
+- react query
+- antd - desing lib
