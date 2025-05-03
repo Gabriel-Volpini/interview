@@ -27,20 +27,18 @@ Check a video preview here: https://www.youtube.com/watch?v=_H8tis2WssU
 
 ### Vite + React + pnpm
 
-Chosen for fast development cycles and efficient package management.
-
+Selected to support a modern, high-performance development stack. Vite enables lightning-fast hot module replacement, React offers a robust UI framework, and pnpm ensures efficient, disk-saving package management.
 ### Ant Design
 
-Enables rapid and consistent UI development.
+Chosen for its comprehensive and customizable component library, enabling consistent, production-ready UI development with minimal overhead.
 
 ### Styled Components
 
-Scoped styling for component-level design control.
+Utilized for its ability to encapsulate styles at the component level, promoting modularity, maintainability, and scoped styling across the application.
 
 ### Leaflet
 
-Integrated for intuitive geolocation interaction.
-
+Implemented for its lightweight, open-source mapping capabilities, providing an intuitive and responsive interface for geolocation features.
 
 
 ## Critique
