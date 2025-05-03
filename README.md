@@ -23,6 +23,7 @@ quando aumentar mt a quantidade de itens o mapa a lista e a filtragem vao dar pr
 - pnpm
 - vite
 - vitest
+-react testing library
 - react query
 - antd - desing lib
 - styled components

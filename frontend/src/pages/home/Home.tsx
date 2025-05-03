@@ -19,7 +19,7 @@ export const Home = () => {
     const contextValue: IHomeContex = {
         hoveredElementId,
         setHoveredElementId,
-        data: fakeApiResponse as MobileFoodFacility[]
+        data: fakeApiResponse.map(item => ({...item, key: item.locationid})) as MobileFoodFacility[]
     }
     return (
         <HomeContext.Provider value={contextValue}>

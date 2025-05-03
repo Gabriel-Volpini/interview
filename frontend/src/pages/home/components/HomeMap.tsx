@@ -25,7 +25,7 @@ export function HomeMap() {
             />
 
             {data.map((marker) => (
-                <Marker position={[marker.Latitude, marker.Longitude]} icon={marker.locationid === hoveredElementId ? largeIcon : customIcon}>
+                <Marker key={marker.locationid} position={[marker.Latitude, marker.Longitude]} icon={marker.locationid === hoveredElementId ? largeIcon : customIcon}>
                     <Popup>{marker.Applicant}</Popup>
                 </Marker>
             ))}
