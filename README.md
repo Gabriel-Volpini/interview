@@ -16,3 +16,4 @@ duvida entre fazer usando next
 - vitest
 - react query
 - antd - desing lib
+- styled components
