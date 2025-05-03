@@ -14,6 +14,11 @@ marker esta com o offset errado
 lista esta com estilo esquisito, provavelmente por causa do tamanho dos textos renderizados dentro dela
 clicar na lista centraliza o marcador
 quando o hover acontecer, aumentar o zindex do marker para ele vir para frente
+criar enum para os status 
+quando aumentar mt a quantidade de itens o mapa a lista e a filtragem vao dar problema
+    mapa -> cluster de icons
+    lista -> pagination integrado com o backend
+    filtragem -> buscar pelo back 
 
 - pnpm
 - vite

@@ -20,24 +20,35 @@ const columns: TableProps<MobileFoodFacility>['columns'] = [
 export const HomeTable = () => {
     const { data, setHoveredElementId } = useContext(HomeContext)
     const [search, setSearch] = useState<null | MobileFoodFacility[]>(null)
+    const [searchStatus, setSearchStatus] = useState<string>('ALL')
 
     const onSearch: SearchProps['onSearch'] = (value, _e, info) => {
         if (info?.source === "clear") return setSearch(null)
-        else setSearch([data[0]])
+
+        const searched = data.filter(item => (item.Applicant.includes(value) || item.Address.includes(value)))
+        if (searchStatus === "ALL") {
+            setSearch(searched)
+        } else {
+            const statusSearched = searched.filter(item => item.Status === searchStatus)
+            setSearch(statusSearched)
+        }
     }
 
     return (
         <Wrapper >
             <SearchWrapper >
                 <Select
-                    defaultValue="lucy"
-                    style={{ width: 120 }}
-                    //onChange={handleChange}
+                    value={searchStatus}
+                    size='large'
+                    style={{ width: 180, marginRight: 24 }}
+                    onChange={setSearchStatus}
                     options={[
-                        { value: 'jack', label: 'Jack' },
-                        { value: 'lucy', label: 'Lucy' },
-                        { value: 'Yiminghe', label: 'yiminghe' },
-                        { value: 'disabled', label: 'Disabled', disabled: true },
+                        { value: 'ALL', label: 'All Status' },
+                        { value: 'REQUESTED', label: 'Requested' },
+                        { value: 'APPROVED', label: 'Approved' },
+                        { value: 'EXPIRED', label: 'Expired' },
+                        { value: 'SUSPENDED', label: 'Suspended' },
+                        { value: 'ISSUED', label: 'Issued' },
                     ]}
                 />
                 <Search
@@ -68,7 +79,7 @@ const Wrapper = styled.div`
 
 const SearchWrapper = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-bottom: 32px;
 `
 
