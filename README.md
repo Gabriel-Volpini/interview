@@ -31,3 +31,4 @@ quando aumentar mt a quantidade de itens o mapa a lista e a filtragem vao dar pr
 Backed notes
 
 - docker compose com sleep 2 pq o fast api n tava esperando o banco subir
+Euclideana simples, que é suficiente em curtas distâncias

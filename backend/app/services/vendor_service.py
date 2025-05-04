@@ -9,3 +9,6 @@ class VendorService:
 
     async def search_by_address(self, partial_address: str):
         return await self.repo.search_by_address(partial_address)
+
+    async def find_nearest_vendors(self, lat: float, lng: float, include_all_status: bool = False):
+        return await self.repo.find_nearest(lat, lng, only_approved=not include_all_status)

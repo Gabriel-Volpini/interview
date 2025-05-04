@@ -30,3 +30,14 @@ async def search_vendors_by_address(
     repo = VendorRepository(db)
     service = VendorService(repo)
     return await service.search_by_address(address)
+
+@router.get("/vendors/nearest")
+async def get_nearest_vendors(
+    lat: float = Query(..., description="Latitude"),
+    lng: float = Query(..., description="Longitude"),
+    include_all_status: bool = Query(False, description="Set true to include all statuses"),
+    db: AsyncSession = Depends(get_db)
+):
+    repo = VendorRepository(db)
+    service = VendorService(repo)
+    return await service.find_nearest_vendors(lat, lng, include_all_status)
