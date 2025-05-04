@@ -21,3 +21,12 @@ async def search_vendors(
     repo = VendorRepository(db)
     service = VendorService(repo)
     return await service.search_vendors(applicant, status)
+
+@router.get("/vendors/by-address")
+async def search_vendors_by_address(
+    address: str = Query(..., description="Partial or full street name"),
+    db: AsyncSession = Depends(get_db)
+):
+    repo = VendorRepository(db)
+    service = VendorService(repo)
+    return await service.search_by_address(address)

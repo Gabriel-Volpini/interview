@@ -12,3 +12,8 @@ class VendorRepository:
             query = query.where(Vendor.Status.ilike(status))
         result = await self.session.execute(query)
         return result.scalars().all()
+
+    async def search_by_address(self, partial_address: str):
+        query = select(Vendor).where(Vendor.Address.ilike(f"%{partial_address}%"))
+        result = await self.session.execute(query)
+        return result.scalars().all()
