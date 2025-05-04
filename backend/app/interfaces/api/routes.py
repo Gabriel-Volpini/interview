@@ -4,11 +4,11 @@ from app.infrastructure.database import SessionLocal
 from app.infrastructure.repositories.vendor_repository import VendorRepository
 from app.services.vendor_service import VendorService
 from app.domain.enums.vendor_status import VendorStatus
-
+from typing import AsyncGenerator
 
 router = APIRouter()
 
-async def get_db():
+async def get_db() -> AsyncGenerator[AsyncSession, None]:
     async with SessionLocal() as session:
         yield session
 
