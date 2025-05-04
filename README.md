@@ -27,3 +27,7 @@ quando aumentar mt a quantidade de itens o mapa a lista e a filtragem vao dar pr
 - react query
 - antd - desing lib
 - styled components
+
+Backed notes
+
+- docker compose com sleep 2 pq o fast api n tava esperando o banco subir
