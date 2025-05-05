@@ -9,5 +9,6 @@ The goal of this project is to build an application that enables users to explor
 ## Implementations
 Both backend and frontend implementations are included:
 
-- [/backend](./backend) – A FastAPI application following Clean Architecture principles.
 - [ /frontend ](./frontend) – A React-based frontend that consumes the backend API and displays results on an interactive map.
+- [/backend](./backend) – A FastAPI application following Clean Architecture principles.
+
