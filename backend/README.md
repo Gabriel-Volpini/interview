@@ -1,17 +1,17 @@
 
 # Food Facilities Challenge (Backend)
+This is a backend-focused application built for the Food Facilities Challenge, using public data from SF Open Data – Mobile Food Facility Permits.
 
-This is a frontend application built to explore mobile food facilities in San Francisco, leveraging public data from SF Open Data. It allows users to search by applicant name, street name, and view the locations on an interactive map.
-
-Check a video preview here: https://youtu.be/RuIrW_VjyrA
-[![image](https://github.com/user-attachments/assets/82f6fcb2-19fa-4591-b30d-9ef280eb1610)](https://youtu.be/RuIrW_VjyrA)
-
-
-## Features
+The project provides a RESTful API that enables users to:
 - Search by applicant name with optional filtering by status
 - Search by street name (partial match supported)
 - Retrieve the nearest 5 food trucks, optionally filtered by status (APPROVED or all).
 
+This version of the challenge is implemented in Python using FastAPI, and Clean Architecture principles for maintainability and scalability.
+
+Watch a quick demo here https://youtu.be/RuIrW_VjyrA
+
+[![image](https://github.com/user-attachments/assets/82f6fcb2-19fa-4591-b30d-9ef280eb1610)](https://youtu.be/RuIrW_VjyrA)
 
 ## Tech Stack
 - Framework: FastAPI
