@@ -1,46 +1,13 @@
-# Mobile Food Facility App – San Francisco
+# Food Facilities Challenge
 
-A full-stack application that enables users to search, filter, and locate mobile food vendors in San Francisco using a public dataset. Built using Python (FastAPI) for the backend and React (TypeScript) for the frontend.
+This repository contains my solution to the Food Facilities Challenge, based on public data from SF Open Data – Mobile Food Facility Permits.
 
-This project fulfills the challenge requirements for both the Backend-Focused and Frontend-Focused versions of the assignment. Below, each part is documented independently.
-
----
+The goal of this project is to build an application that enables users to explore mobile food vendors in San Francisco through powerful search and geolocation features.
 
 
-FRONTEND NOTES
 
-duvida entre fazer usando next
-marker esta com o offset errado
-lista esta com estilo esquisito, provavelmente por causa do tamanho dos textos renderizados dentro dela
-clicar na lista centraliza o marcador
-quando o hover acontecer, aumentar o zindex do marker para ele vir para frente
-criar enum para os status 
-quando aumentar mt a quantidade de itens o mapa a lista e a filtragem vao dar problema
-    mapa -> cluster de icons
-    lista -> pagination integrado com o backend
-    filtragem -> buscar pelo back 
+## Implementations
+Both backend and frontend implementations are included:
 
-- pnpm
-- vite
-- vitest
--react testing library
-- react query
-- antd - desing lib
-- styled components
-
-Backed notes
-
-- docker compose com sleep 2 pq o fast api n tava esperando o banco subir
-- Euclideana simples, que é suficiente em curtas distâncias
-- Rodar os testes apontando para o banco de dados
-- exigencia da api esta rodando para os testes
-
-conferir o resto no 
-
-rodar teste
-docker-compose exec web pytest
-
-rodar aplicacao
-docker compose up
-
-acessar http://localhost:8000/docs
+- [/backend](./backend) – A FastAPI application following Clean Architecture principles.
+- [ /frontend ](./frontend) – A React-based frontend that consumes the backend API and displays results on an interactive map.
